@@ -50,7 +50,7 @@ the bug.  One way around this is to find the code that causes the error, and
 run R with a C++ debugger.
 
 If you are using macOS and have installed R using the Apple installer, you will 
-not be able to run R with a debugger attached; please see [the instructions here for details on causes of this and workarounds.](https://mac.r-project.org/bin/macosx/RMacOSX-FAQ.html#I-cannot-attach-debugger-to-R)
+not be able to run R with a debugger attached; please see [the instructions here for details on causes of this and workarounds.](https://mac.r-project.org/bin/macosx/RmacOSX-FAQ.html#I-cannot-attach-debugger-to-R)
 
 Firstly, load R with your debugger.  The most common debuggers are `gdb` 
 (typically found on Linux, sometimes on macOS, or Windows via MinGW or Cygwin) 
