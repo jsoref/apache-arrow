@@ -154,6 +154,7 @@
             <exclude>**/*.iml</exclude>
             <exclude>**/flight.properties</exclude>
             <exclude>**/*.idea/**</exclude>
+            <exclude>**/.github/actions/spelling/*</exclude>
           </excludes>
         </configuration>
       </plugin>

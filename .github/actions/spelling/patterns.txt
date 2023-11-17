@@ -1,0 +1,223 @@
+# See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
+
+# Automatically suggested patterns
+# hit-count: 4271 file-count: 642
+# https/http/file urls
+(?:\b(?:https?|ftp|file)://)[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]
+
+# hit-count: 4186 file-count: 277
+# hex digits including css/html color classes:
+(?:[\\0][xX]|[uU]\+|#x?|\%23)[0-9_a-fA-FgGrR]*?[a-fA-FgGrR]{2,}[0-9_a-fA-FgGrR]*(?:[uUlL]{0,3}|[iu]\d+)\b
+
+\\u[0-9a-f]{4}
+\\U[0-9a-f]{8}
+
+# hit-count: 2058 file-count: 187
+# Compiler flags (Unix, Java/Scala)
+# Use if you have things like `-Pdocker` and want to treat them as `docker`
+(?:^|[\t ,>"'`=(])-(?:(?:J-|)[WXY]|D(?!ouble)|f(?!ile|ilter|ind|raction|ramework)|l(?!arge|eft|ike|imit|ine|inux|inks|ong)|P(?!ack))(?=[A-Z]{2,}|[A-Z][a-z]|[a-z]{2,})
+
+# hit-count: 1114 file-count: 248
+# IServiceProvider / isAThing
+\b(?:[CGIKRTN]|isA)(?=(?:[A-Z][a-z]{2,})+(?:[A-Z]|\b))
+
+# hit-count: 732 file-count: 90
+# latex (check-spelling >= 0.0.22)
+\\\w{2,}\{
+
+# hit-count: 451 file-count: 141
+# hex runs
+\b[0-9a-fA-F]{16,}\b
+
+# hit-count: 401 file-count: 90
+# alternate markers if you run into latex and friends
+(?<!\\)\\(?:n(?!one|ote)|r(?!eturn)|t(?!est|itle|mp|zdata))(?=[a-z]{2,})(?=.*['"`])
+
+# hit-count: 315 file-count: 49
+# base64 encoded content, possibly wrapped in mime
+#(?:^|[\s=;:?])[-a-zA-Z=;:/0-9+]{50,}(?:[\s=;:?]|$)
+
+^\s*"[a-z0-9A-Z/+]{12,}\\n"
+
+# hit-count: 231 file-count: 51
+# Time Zones
+\b(?:Africa|Atlantic|America|Antarctica|Asia|Australia|Europe|Indian|Pacific)(?:/\w+)+
+
+# hit-count: 199 file-count: 34
+# Python string prefix / binary prefix
+# Note that there's a high false positive rate, remove the `?=` and search for the regex to see if the matches seem like reasonable strings
+(?<!')\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)'(?=[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})
+
+# hit-count: 176 file-count: 40
+# version suffix <word>v#
+(?:(?<=[A-Z]{2})V|(?<=[a-z]{2}|[A-Z]{2})v)\d+(?:\b|(?=[a-zA-Z_]))
+
+# hit-count: 176 file-count: 31
+# Non-English
+[a-zA-Z]*[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3}[a-zA-ZÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]*|[a-zA-Z]{3,}[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]|[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3,}
+
+# hit-count: 149 file-count: 22
+# GitHub JSON
+"node_id": "[-a-zA-Z=;:/0-9+_]*"
+
+# hit-count: 77 file-count: 10
+# uuid:
+\b[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}\b
+
+# hit-count: 65 file-count: 7
+# patch hunk comments
+^\@\@ -\d+(?:,\d+|) \+\d+(?:,\d+|) \@\@ .*
+
+# hit-count: 61 file-count: 14
+# sha-... -- uses a fancy capture
+(\\?['"]|&quot;)[0-9a-f]{40,}\g{-1}
+
+# hit-count: 31 file-count: 21
+# tar arguments
+\b(?:\\n|)g?tar(?:\.exe|)(?:(?:\s+--[-a-zA-Z]+|\s+-[a-zA-Z]+|\s[ABGJMOPRSUWZacdfh-pr-xz]+\b)(?:=[^ ]*|))+
+
+# hit-count: 29 file-count: 4
+# Update Lorem based on your content (requires `ge` and `w` from https://github.com/jsoref/spelling; and `review` from https://github.com/check-spelling/check-spelling/wiki/Looking-for-items-locally )
+# grep '^[^#].*lorem' .github/actions/spelling/patterns.txt|perl -pne 's/.*i..\?://;s/\).*//' |tr '|' "\n"|sort -f |xargs -n1 ge|perl -pne 's/^[^:]*://'|sort -u|w|sed -e 's/ .*//'|w|review -
+# Warning, while `(?i)` is very neat and fancy, if you have some binary files that aren't proper unicode, you might run into:
+## Operation "substitution (s///)" returns its argument for non-Unicode code point 0x1C19AE (the code point will vary).
+## You could manually change `(?i)X...` to use `[Xx]...`
+## or you could add the files to your `excludes` file (a version after 0.0.19 should identify the file path)
+# Lorem
+(?:\w|\s|[,.])*\b(?i)(?:amet|consectetur|cursus|dolor|eros|ipsum|lacus|libero|ligula|lorem|magna|neque|nulla|suscipit|tempus)\b(?:\w|\s|[,.])*
+
+# hit-count: 28 file-count: 12
+# This does not cover multiline strings, if your repository has them,
+# you'll want to remove the `(?=.*?")` suffix.
+# The `(?=.*?")` suffix should limit the false positives rate
+# printf
+%s(?=[a-z]{2,})(?=[_a-zA-Z]+(?!%)\b)(?=.*?['"])
+
+# hit-count: 22 file-count: 22
+# set arguments
+\bset(?:\s+-[abefimouxE]{1,2})*\s+-[abefimouxE]{3,}(?:\s+-[abefimouxE]+)*
+
+# hit-count: 14 file-count: 6
+# git index header
+index (?:[0-9a-z]{7,40},|)[0-9a-z]{7,40}\.\.[0-9a-z]{7,40}
+
+# hit-count: 12 file-count: 5
+# node packages
+(["'])\@[^/'" ]+/[^/'" ]+\g{-1}
+
+# hit-count: 9 file-count: 4
+# go install
+go install(?:\s+[a-z]+\.[-@\w/.]+)+
+
+# regex
+[ (]r'.*'
+
+# hit-count: 6 file-count: 4
+# assign regex
+= /[^*]*?(?:[a-z]{3,}|[A-Z]{3,}|[A-Z][a-z]{2,}).*/
+
+# hit-count: 4 file-count: 4
+# perl run
+perl(?:\s+-[a-zA-Z]\w*)+
+
+# hit-count: 3 file-count: 3
+# curl arguments
+\b(?:\\n|)curl(?:\s+-[a-zA-Z]{1,2}\b)*(?:\s+-[a-zA-Z]{3,})(?:\s+-[a-zA-Z]+)*
+
+# hit-count: 2 file-count: 2
+# css url wrappings
+\burl\([^)]+\)
+
+# hit-count: 2 file-count: 2
+# pki
+-----BEGIN.*-----END
+
+# hit-count: 2 file-count: 2
+# bearer auth
+(['"])Bear[e][r] .*?\g{-1}
+
+# hit-count: 1 file-count: 1
+# sed regular expressions
+sed 's/(?:[^/]*?[a-zA-Z]{3,}[^/]*?/){2}
+
+# URL escaped characters
+%[0-9][A-F](?=[A-Za-z])
+
+(?:id =| )\s"[-a-zA-Z=;:/0-9+]+=";
+
+(?:^| _|commit )[0-9a-f]{6,}(?::|_(?:[:.]|$))
+
+MatchSubstringOptions\s+\w+\{".*"
+
+^\s*(?:FROM|-)\s+[-\w./]*?[a-z][-\w./]*?:[-\w.]+
+
+Author: .* <.*>
+
+# RegEx
+\bs/.*/.*/[g)]
+
+\.gsub\(/.{3,}?/
+
+/\\A.*/
+
+%T(?=[B-DF-HJ-QS-XZ])
+
+\b(?:CheckNotExists|CheckOk|list|OpenBuffer(?:Async|)|std::string(?:_view|))\(['"].*['"]
+
+\b(?:pa\.array|R")\(\[.*\](?:,\s+\w+=\w+)*\)
+
+\bR"[^"]{3,}"
+
+(?:_utf8|assert_equal|\bBenchmark\w+|Buffer\.new|check_match|EXPECT_EQ)\(.*".*\)
+
+(?:MakeArrowArrayUtf8|TestTrieContents)\(\{.*(?:\}|$)
+
+"[0-9A-Za-z]{30,}"
+
+\b[0-9a-f]{12}\b
+
+\b[A-F]{4,}\b
+
+aws(?:-\w+){2,}
+
+^\s+\{"time":.*
+
+GNU(?=[a-z])
+
+# `@frozen` `public struct Table` `postion`
+# https://github.com/google/flatbuffers/blob/5a937f1ba19f96f11e22625b955013ee389e89b6/swift/Sources/FlatBuffers/Table.swift#L25-L45
+\b_accessor\.postion\b
+
+# Questionably acceptable forms of `in to`
+# Personally, I prefer `log into`, but people object
+# https://www.tprteaching.com/log-into-log-in-to-login/
+\b(?:[Ll]og|[Ss]ign) in to\b
+
+# to opt in
+\bto opt in\b
+
+# acceptable duplicates
+# ls directory listings
+[-bcdlpsw](?:[-r][-w][-SsTtx]){3}[\.+*]?\s+\d+\s+\S+\s+\S+\s+\d+\s+
+# mount
+\bmount\s+-t\s+(\w+)\s+\g{-1}\b
+# C types and repeated CSS values
+\s(ABCD|ACAC|auto|center|div|false|inherit|large|long|LONG|none|normal|solid|string|that|thin|this|transparent|true|very)(?: \g{-1})+\s
+# C struct
+\bstruct\s+(\w+)\s+\g{-1}\b
+# go templates
+\s(\w+)\s+\g{-1}\s+\`(?:graphql|inject|json|thrift|yaml):
+# doxygen / javadoc / .net
+(?:[\\@](?:brief|groupname|t?param(?:\[(?:in|out|,|\s)+\]|)|return|retval)|(?:public|private|\[Parameter(?:\(.+\)|)\])(?:\s+static|\s+override|\s+readonly)*)(?:\s+\{\w+\}|)\s+(\w+)\s+\g{-1}\s
+# cs property
+\b(\w+)\s+\g{-1}\s*\{\s*[g]et;
+# go struct
+^\s*(\w+)\s+\g{-1}\s+//\s
+# Commit message -- Signed-off-by and friends
+^\s*(?:(?:Based-on-patch|Co-authored|Helped|Mentored|Reported|Reviewed|Signed-off)-by|Thanks-to): (?:[^<]*<[^>]*>|[^<]*)\s*$
+
+# Autogenerated revert commit message
+^This reverts commit [0-9a-f]{40}\.$
+
+# ignore long runs of a single character:
+\b([A-Za-z])\g{-1}{3,}\b
