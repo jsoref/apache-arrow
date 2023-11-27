@@ -237,7 +237,7 @@ on:
       brew config
       brew doctor || true
       # The GHA runners install of python > 3.10 is incompatible with brew so we
-      # have to force overwritting of the symlinks
+      # have to force overwriting of the symlinks
       # see https://github.com/actions/runner-images/issues/6868
       brew install --overwrite python@3.11 python@3.10
 
@@ -249,7 +249,7 @@ on:
           continue
         fi
         # Pin the current commit in the formula to test so that
-        # we're not always pulling from the tip of the default branch
+        # we aren't always pulling from the tip of the default branch
         sed -i '' -E \
           -e 's@https://github.com/apache/arrow.git", branch: "main"$@{{ arrow.remote }}.git", revision: "{{ arrow.head }}"@' \
           ${formula}

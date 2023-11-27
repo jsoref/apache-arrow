@@ -174,7 +174,7 @@ extern  "C" {
      * Connect to the hdfs.
      * @param nn   The NameNode.  See hdfsBuilderSetNameNode for details.
      * @param port The port on which the server is listening.
-     * @param user the user name (this is hadoop domain user). Or NULL is equivelant to hhdfsConnect(host, port)
+     * @param user the user name (this is hadoop domain user). Or NULL is equivalent to hhdfsConnect(host, port)
      * @return Returns a handle to the filesystem or NULL on error.
      * @deprecated Use hdfsBuilderConnect instead.
      */
@@ -481,7 +481,7 @@ extern  "C" {
     hdfsFile hdfsStreamBuilderBuild(struct hdfsStreamBuilder *bld);
 
     /**
-     * hdfsTruncateFile - Truncate a hdfs file to given lenght.
+     * hdfsTruncateFile - Truncate a hdfs file to given length.
      * @param fs The configured filesystem handle.
      * @param path The full path to the file.
      * @param newlength The size the file is to be truncated to
@@ -521,7 +521,7 @@ extern  "C" {
 
 
     /**
-     * hdfsExists - Checks if a given path exsits on the filesystem
+     * hdfsExists - Checks if a given path exists on the filesystem
      * @param fs The configured filesystem handle.
      * @param path The path to look for
      * @return Returns 0 on success, -1 on error.
@@ -711,7 +711,7 @@ extern  "C" {
 
 
     /**
-     * hdfsCreateDirectory - Make the given file and all non-existent
+     * hdfsCreateDirectory - Make the given file and all nonexistent
      * parents into directories.
      * @param fs The configured filesystem handle.
      * @param path The path of the directory.

@@ -873,7 +873,7 @@ _repository = None
 # Files to exclude from linting. This is set by the --exclude flag.
 _excludes = None
 
-# Whether to supress all PrintInfo messages, UNRELATED to --quiet flag
+# Whether to suppress all PrintInfo messages, UNRELATED to --quiet flag
 _quiet = False
 
 # The allowed line length of files.
@@ -1001,7 +1001,7 @@ def ParseNolintSuppressions(filename, raw_line, linenum, error):
                 'Unknown NOLINT error category: %s' % category)
 
 
-def ProcessGlobalSuppresions(lines):
+def ProcessGlobalSuppressions(lines):
   """Updates the list of global error suppressions.
 
   Parses any lint directives in the file that have global effect.
@@ -1029,7 +1029,7 @@ def IsErrorSuppressedByNolint(category, linenum):
   """Returns true if the specified error category is suppressed on this line.
 
   Consults the global error_suppressions map populated by
-  ParseNolintSuppressions/ProcessGlobalSuppresions/ResetNolintSuppressions.
+  ParseNolintSuppressions/ProcessGlobalSuppressions/ResetNolintSuppressions.
 
   Args:
     category: str, the category of the error.
@@ -1246,7 +1246,7 @@ class _IncludeState(object):
       if self._section <= self._MY_H_SECTION:
         self._section = self._MY_H_SECTION
       else:
-        # This will always be the fallback because we're not sure
+        # This will always be the fallback because we aren't sure
         # enough that the header is associated with this file.
         self._section = self._OTHER_H_SECTION
     else:
@@ -1271,7 +1271,7 @@ class _CppLintState(object):
     self._filters_backup = self.filters[:]
     self.counting = 'total'  # In what way are we counting errors?
     self.errors_by_category = {}  # string to int dict storing error counts
-    self.quiet = False  # Suppress non-error messagess?
+    self.quiet = False  # Suppress non-error messages?
 
     # output format:
     # "emacs" - format that emacs can parse (default)
@@ -1599,7 +1599,7 @@ class FileInfo(object):
         repo = FileInfo(_repository).FullName()
         root_dir = project_dir
         while os.path.exists(root_dir):
-          # allow case insensitive compare on Windows
+          # allow case-insensitive compare on Windows
           if os.path.normcase(root_dir) == os.path.normcase(repo):
             return os.path.relpath(fullname, root_dir).replace('\\', '/')
           one_up_dir = os.path.dirname(root_dir)
@@ -1765,7 +1765,7 @@ _RE_PATTERN_CLEANSE_LINE_C_COMMENTS = re.compile(
 def IsCppString(line):
   """Does line terminate so, that the next symbol is in string constant.
 
-  This function does not consider single-line nor multi-line comments.
+  This function does not consider comments at all.
 
   Args:
     line: is a partial line of code starting from the 0..n.
@@ -1947,7 +1947,7 @@ class CleansedLines(object):
   def _CollapseStrings(elided):
     """Collapses strings and chars on a line to simple "" or '' blocks.
 
-    We nix strings first so we're not fooled by text like '"http://"'
+    We nix strings first so we aren't fooled by text like '"http://"'
 
     Args:
       elided: The line being processed.
@@ -3481,7 +3481,7 @@ def CheckSpacingForFunctionCall(filename, clean_lines, linenum, error):
   # for nested parens ( (a+b) + c ).  Likewise, there should never be
   # a space before a ( when it's a function argument.  I assume it's a
   # function argument when the char before the whitespace is legal in
-  # a function name (alnum + _) and we're not starting a macro. Also ignore
+  # a function name (alnum + _) and we aren't starting a macro. Also ignore
   # pointers and references to arrays and functions coz they're too tricky:
   # we use a very simple way to recognize these:
   # " (something)(maybe-something)" or
@@ -3870,7 +3870,7 @@ def CheckOperatorSpacing(filename, clean_lines, linenum, error):
   elif not Match(r'#.*include', line):
     # Look for < that is not surrounded by spaces.  This is only
     # triggered if both sides are missing spaces, even though
-    # technically should should flag if at least one side is missing a
+    # technically it should flag if at least one side is missing a
     # space.  This is done to avoid some false positives with shifts.
     match = Match(r'^(.*[^\s<])<[^\s=<,]', line)
     if match:
@@ -6155,7 +6155,7 @@ def CheckForIncludeWhatYouUse(filename, clean_lines, include_state, error,
       header_found = True
 
   # If we can't find the header file for a .cc, assume it's because we don't
-  # know where to look. In that case we'll give up as we're not sure they
+  # know where to look. In that case we'll give up as we aren't sure they
   # didn't include it in the .h file.
   # TODO(unknown): Do a better job of finding .h files so we are confident that
   # not having the .h file means there isn't one.
@@ -6495,7 +6495,7 @@ def ProcessFileData(filename, file_extension, lines, error,
   ResetNolintSuppressions()
 
   CheckForCopyright(filename, lines, error)
-  ProcessGlobalSuppresions(lines)
+  ProcessGlobalSuppressions(lines)
   RemoveMultiLineComments(filename, lines, error)
   clean_lines = CleansedLines(lines)
 

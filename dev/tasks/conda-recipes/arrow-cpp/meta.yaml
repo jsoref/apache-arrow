@@ -1,4 +1,4 @@
-# NOTE: In constrast to the conda-forge recipe, ARROW_VERSION is a templated variable here.
+# NOTE: In contrast to the conda-forge recipe, ARROW_VERSION is a templated variable here.
 {% set version = ARROW_VERSION %}
 {% set cuda_enabled = cuda_compiler_version != "None" %}
 {% set build_ext_version = ARROW_VERSION %}
@@ -358,7 +358,7 @@ outputs:
         # and using them as test dependencies blocks the migrator unnecessarily
         # - pytorch
         # - tensorflow
-        # we're not building java bindings
+        # we aren't building java bindings
         # - jpype1
         # doesn't get picked up correctly
         # - libhdfs3

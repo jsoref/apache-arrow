@@ -141,7 +141,7 @@ class BackgroundReader {
     // Put fd in non-blocking mode
     fcntl(fd, F_SETFL, O_NONBLOCK);
     // Note the wakeup pipe itself does not need to be non-blocking,
-    // since we're not actually reading from it.
+    // since we aren't actually reading from it.
   }
 
   void LoopReading() {
@@ -220,7 +220,7 @@ static void BenchmarkStreamingWrites(benchmark::State& state,
 
 // Benchmark writing to /dev/null
 //
-// This situation is irrealistic as the kernel likely doesn't
+// This situation is unrealistic as the kernel likely doesn't
 // copy the data at all, so we only measure small writes.
 
 static void FileOutputStreamSmallWritesToNull(

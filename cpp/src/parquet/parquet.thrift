@@ -182,7 +182,7 @@ enum ConvertedType {
  * Representation of Schemas
  */
 enum FieldRepetitionType {
-  /** This field is required (can not be null) and each record has exactly 1 value. */
+  /** This field is required (cannot be null) and each record has exactly 1 value. */
   REQUIRED = 0;
 
   /** The field is optional (can be null) and each record has 0 or 1 values. */
@@ -196,7 +196,7 @@ enum FieldRepetitionType {
  * A structure for capturing metadata for estimating the unencoded,
  * uncompressed size of data written. This is useful for readers to estimate
  * how much memory is needed to reconstruct data in their memory model and for
- * fine grained filter pushdown on nested structures (the histograms contained
+ * fine-grained filter pushdown on nested structures (the histograms contained
  * in this structure can help determine the number of nulls at a particular
  * nesting level and maximum length of lists).
  */
@@ -1008,7 +1008,7 @@ struct OffsetIndex {
   /**
    * Unencoded/uncompressed size for BYTE_ARRAY types.
    *
-   * See documention for unencoded_byte_array_data_bytes in SizeStatistics for
+   * See documentation for unencoded_byte_array_data_bytes in SizeStatistics for
    * more details on this field.
    */
   2: optional list<i64> unencoded_byte_array_data_bytes

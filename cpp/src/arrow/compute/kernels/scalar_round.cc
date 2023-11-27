@@ -598,7 +598,7 @@ struct RoundToMultiple<ArrowType, kRoundMode, enable_if_decimal<ArrowType>> {
       if (has_halfway_point &&
           (remainder == half_multiple || remainder == neg_half_multiple)) {
         // On the halfway point, use tiebreaker
-        // Manually implement rounding since we're not actually rounding a
+        // Manually implement rounding since we aren't actually rounding a
         // decimal value, but rather manipulating the multiple
         switch (kRoundMode) {
           case RoundMode::HALF_DOWN:
@@ -638,7 +638,7 @@ struct RoundToMultiple<ArrowType, kRoundMode, enable_if_decimal<ArrowType>> {
         }
       }
     } else {
-      // Manually implement rounding since we're not actually rounding a
+      // Manually implement rounding since we aren't actually rounding a
       // decimal value, but rather manipulating the multiple
       switch (kRoundMode) {
         case RoundMode::DOWN:
@@ -747,7 +747,7 @@ struct Round {
       } else {
         round_val = RoundImpl<CType, RndMode>::Round(round_val);
       }
-      // Equality check is ommitted so that the common case of 10^0 (integer rounding)
+      // Equality check is omitted so that the common case of 10^0 (integer rounding)
       // uses multiply-only
       round_val = ndigits > 0 ? (round_val / pow10) : (round_val * pow10);
       if (!std::isfinite(round_val)) {

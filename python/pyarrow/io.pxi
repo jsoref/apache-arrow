@@ -1418,7 +1418,7 @@ cdef class Buffer(_Weakrefable):
 
     def __getreadbuffer__(self, Py_ssize_t idx, void **p):
         if idx != 0:
-            raise SystemError("accessing non-existent buffer segment")
+            raise SystemError("accessing nonexistent buffer segment")
         if p != NULL:
             p[0] = <void*> self.buffer.get().data()
         return self.size
@@ -1427,7 +1427,7 @@ cdef class Buffer(_Weakrefable):
         if not self.buffer.get().is_mutable():
             raise SystemError("trying to write an immutable buffer")
         if idx != 0:
-            raise SystemError("accessing non-existent buffer segment")
+            raise SystemError("accessing nonexistent buffer segment")
         if p != NULL:
             p[0] = <void*> self.buffer.get().data()
         return self.size
@@ -1609,7 +1609,7 @@ cdef class CompressedInputStream(NativeFile):
 
     Examples
     --------
-    Create an ouput stream wich compresses the data:
+    Create an output stream wich compresses the data:
 
     >>> import pyarrow as pa
     >>> data = b"Compressed stream"
@@ -1666,7 +1666,7 @@ cdef class CompressedOutputStream(NativeFile):
 
     Examples
     --------
-    Create an ouput stream wich compresses the data:
+    Create an output stream wich compresses the data:
 
     >>> import pyarrow as pa
     >>> data = b"Compressed stream"

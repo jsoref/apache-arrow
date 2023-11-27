@@ -393,7 +393,7 @@ Result<std::shared_ptr<ArrayData>> ListViewFromListImpl(
   const auto* offsets = list_data->template GetValues<offset_type>(1, 0);
   auto* sizes = sizes_buffer->mutable_data_as<offset_type>();
   // Zero the initial padding area to avoid leaking any data when buffers are
-  // sent over IPC or throught the C Data interface.
+  // sent over IPC or through the C Data interface.
   memset(sizes, 0, list_data->offset * sizeof(offset_type));
   for (int64_t i = list_data->offset; i < buffer_length; i++) {
     sizes[i] = offsets[i + 1] - offsets[i];
@@ -778,7 +778,7 @@ Result<std::shared_ptr<Array>> MapArray::FromArraysInternal(
   }
 
   if (keys->null_count() != 0) {
-    return Status::Invalid("Map can not contain NULL valued keys");
+    return Status::Invalid("Map cannot contain NULL valued keys");
   }
 
   if (keys->length() != items->length()) {

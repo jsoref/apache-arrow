@@ -192,7 +192,7 @@ std::string to_string(const ConvertedType::type& val);
 struct FieldRepetitionType {
   enum type {
     /**
-     * This field is required (can not be null) and each record has exactly 1 value.
+     * This field is required (cannot be null) and each record has exactly 1 value.
      */
     REQUIRED = 0,
     /**
@@ -462,7 +462,7 @@ typedef struct _SizeStatistics__isset {
  * A structure for capturing metadata for estimating the unencoded,
  * uncompressed size of data written. This is useful for readers to estimate
  * how much memory is needed to reconstruct data in their memory model and for
- * fine grained filter pushdown on nested structures (the histograms contained
+ * fine-grained filter pushdown on nested structures (the histograms contained
  * in this structure can help determine the number of nulls at a particular
  * nesting level and maximum length of lists).
  */
@@ -3597,7 +3597,7 @@ class OffsetIndex : public virtual ::apache::thrift::TBase {
   /**
    * Unencoded/uncompressed size for BYTE_ARRAY types.
    * 
-   * See documention for unencoded_byte_array_data_bytes in SizeStatistics for
+   * See documentation for unencoded_byte_array_data_bytes in SizeStatistics for
    * more details on this field.
    */
   std::vector<int64_t>  unencoded_byte_array_data_bytes;

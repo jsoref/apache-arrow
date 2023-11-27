@@ -118,7 +118,7 @@
 #include <vector>
 #include <sys/stat.h>
 
-// unistd.h is used on some platforms as part of the the means to get
+// unistd.h is used on some platforms as part of the means to get
 // the current time zone. On Win32 windows.h provides a means to do it.
 // gcc/mingw supports unistd.h on Win32 but MSVC does not.
 
@@ -643,7 +643,7 @@ bool
 native_to_standard_timezone_name(const std::string& native_tz_name,
                                  std::string& standard_tz_name)
 {
-    // TOOD! Need be a case insensitive compare?
+    // TOOD! Need be a case-insensitive compare?
     if (native_tz_name == "UTC")
     {
         standard_tz_name = "Etc/UTC";
@@ -3941,7 +3941,7 @@ tzdb::current_zone() const
     // On some OS's a file called /etc/localtime may
     // exist and it may be either a real file
     // containing time zone details or a symlink to such a file.
-    // On MacOS and BSD Unix if this file is a symlink it
+    // On macOS and BSD Unix if this file is a symlink it
     // might resolve to a path like this:
     // "/usr/share/zoneinfo/America/Los_Angeles"
     // If it does, we try to determine the current
